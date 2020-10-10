@@ -13,8 +13,7 @@ export default function BookPage(props){
     const [book,setBook] = useState();
     let buttonJSX;
     useEffect(() => {
-        if(book!==undefined){
-            
+        if(book!==undefined){  
             return;
         }
         axios.post('/books',{ids: [bookID]}).then(res=>{
@@ -22,7 +21,7 @@ export default function BookPage(props){
         }).catch(err=>{
             console.log("unable to find this book");
         })
-    }, [])
+    }, [book,bookID]);
     
     if(book===undefined){
         return(
@@ -84,7 +83,7 @@ export default function BookPage(props){
             <div style = {styles}  >
                 <div className="bookPage-blur">
                     <div className="bookPage-book-details">
-                        <img src={book[0].imageUri} alt="book-image" />
+                        <img src={book[0].imageUri} alt={book[0].title} />
                         <div className="bookPage-book-specs">
                             <span className="bookPage-title">
                                 {book[0].title}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, cloneElement } from 'react'
+import React, { useState, useEffect} from 'react'
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import BookTile from '../components/bookTile';
@@ -191,21 +191,6 @@ export default function Explore(){
     const [genres,setGenres] = useState(initialSelection.genres);
     const [programTypes,setProgramTypes] = useState(initialSelection.programTypes);
     const [languages,setLanguages] = useState(initialSelection.languages);
-    async function fetchBooks() {
-        console.log("fetch called");
-        await axios.post("/books",
-            {
-                languages: languages,
-                categories: categories,
-                genres: genres,
-                programTypes: programTypes
-            }).then(response => {
-                setError("");
-                setBooks(response.data);
-            }).catch(error => {
-                setError("Something Went Wrong!!!");
-            });
-    }
 
     function handleCategoryChange(state) {
         let newState = Object.assign([], state);
@@ -229,6 +214,21 @@ export default function Explore(){
     }
     let bookJSX;
     useEffect(() => {
+        async function fetchBooks() {
+            console.log("fetch called");
+            await axios.post("/books",
+                {
+                    languages: languages,
+                    categories: categories,
+                    genres: genres,
+                    programTypes: programTypes
+                }).then(response => {
+                    setError("");
+                    setBooks(response.data);
+                }).catch(error => {
+                    setError("Something Went Wrong!!!");
+                });
+        }
         fetchBooks();
     }, [categories,genres,programTypes,languages])
     

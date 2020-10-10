@@ -44,6 +44,6 @@ export default function Verification(props){
                 </div>
             );
         });
-    },[]);
+    }, [cookies, props.match.params.token,styles]);
     return returnJSX;
 }

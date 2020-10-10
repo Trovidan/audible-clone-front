@@ -3,7 +3,6 @@ import './styles.css';
 import axios from "../components/axios";
 import logo from './images/svgIcons/audible_logo.svg';
 import Button from 'react-bootstrap/Button';
-import LoginStatus from '../components/loginStatus';
 import Verify from '../components/verify';
 
 export default function CreateUser() {
@@ -12,7 +11,6 @@ export default function CreateUser() {
     const [email,setEmail] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error,setError] = useState("");
-    const loginStatus = React.useContext(LoginStatus);
     const [verification, setVerification] = useState();
     let errorJSX = (
         <div className ="createUser-phantom-error"></div>

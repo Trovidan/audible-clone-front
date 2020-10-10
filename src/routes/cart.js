@@ -20,7 +20,7 @@ export default function Cart() {
             console.log(response);
             setBooks(response.data);
         }).catch(err => { setBooks(); });
-    }, [loginStatus.inCart.length])
+    }, [length, loginStatus.inCart])
 
     let CartJSX = (
         <div className="empty-wishlist-body">

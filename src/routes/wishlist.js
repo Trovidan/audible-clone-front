@@ -20,7 +20,7 @@ export default function Wishlist(){
             console.log(response);
             setBooks(response.data);
         }).catch(err=>{setBooks();});
-    }, [loginStatus.inWishlist])
+    }, [loginStatus.inWishlist,length])
 
     let wishlistJSX =(
         <div className="empty-wishlist-body">

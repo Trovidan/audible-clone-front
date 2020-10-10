@@ -12,11 +12,11 @@ export default function PersonelDetails(){
         _id: "",
         password: ""
     });  
-    let details = {
-        projection: "name _id password"
-    };
-
+    
     React.useEffect(()=>{
+        let details = {
+            projection: "name _id password"
+        };
         axios.post("/personelDetails",details,{ withCredentials: true }).then(response => {
             console.log(response.data);
             setPersonelDetails(response.data);           

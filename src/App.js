@@ -74,11 +74,12 @@ export default function App(){
     }
   };
   const removeFromCart = (id) => {
-    let newCart = new Array();
+    let newCart = [];
     list.inCart.map(cart=>{
       if(id !== cart){
         newCart.push(cart);
       }
+      return true;
     });
     if (auth === true) {
       axios.post('/updateRecord', { fieldName: "cart", val: id, type: 2 }, { withCredentials: true }).then(response => {
@@ -120,11 +121,12 @@ export default function App(){
     }
   };
   const removeFromWishlist = (id) => {
-    let newWishlist = new Array();
+    let newWishlist = [];
     list.inWishlist.map(item => {
       if (id !== item) {
         newWishlist.push(item);
       }
+      return true;
     });
     if (auth === true) {
       axios.post('/updateRecord', { fieldName: "wishlist", val: id, type: 2 }, { withCredentials: true }).then(response => {
@@ -147,11 +149,12 @@ export default function App(){
   };
 
   const moveToWishlist = (id) => {
-    let newCart = new Array();
+    let newCart = [];
     list.inCart.map(cart => {
       if (id !== cart) {
         newCart.push(cart);
       }
+      return true;
     });
     if (auth === true) {
       axios.post('/updateRecord', { fieldName: "wishlist", val: id, fromFieldName : "cart" }, { withCredentials: true }).then(response => {
@@ -173,11 +176,12 @@ export default function App(){
     }
   };
   const moveToCart = (id) => {
-    let newWishlist = new Array();
+    let newWishlist = [];
     list.inWishlist.map(item => {
       if (id !== item) {
         newWishlist.push(item);
       }
+      return true;
     });
     if (auth === true) {
       axios.post('/updateRecord', { fieldName: "cart", val: id, fromFieldName: "wishlist" }, { withCredentials: true }).then(response => {
@@ -258,8 +262,8 @@ export default function App(){
   );
 }
 
-const ProtectedRoute = ({component: Component,auth: auth, ...rest}) =>{
-  if(auth === undefined || auth){
+const ProtectedRoute = ({component: Component,auth: Auth, ...rest}) =>{
+  if(Auth === undefined || Auth){
     return <Route {...rest} render={() => (<Component />)} />;
   }
   else{
@@ -268,9 +272,9 @@ const ProtectedRoute = ({component: Component,auth: auth, ...rest}) =>{
 }
 
 
-const ProtectedLogin = ({ component: Component, auth: auth, ...rest }) => {
+const ProtectedLogin = ({ component: Component, auth: Auth, ...rest }) => {
   // console.log(auth);
-  if (auth === undefined || !auth){
+  if (Auth === undefined || !Auth){
     return <Route {...rest} render={() => (<Component />)} />;
   }
   else {

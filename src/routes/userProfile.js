@@ -5,8 +5,7 @@ import './styles.css';
 import PersonelDetails from '../components/personelDetails';
 import UserReviews from '../components/userReviews';
 import PurchaseDetails from '../components/puchaseDetails';
-import {Redirect} from 'react-router-dom';
-import LoginStatus from '../components/loginStatus';
+
 
 export default function UserProfile(){
 

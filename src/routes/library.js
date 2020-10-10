@@ -10,6 +10,7 @@ import { Button } from 'react-bootstrap';
 export default function Library() {
     const loginStatus = React.useContext(LoginStatus);
     const [books, setBooks] = useState();
+
     let length = loginStatus.inLibrary === undefined ? 0 : loginStatus.inLibrary.length;
     useEffect(() => {
         if (length === 0) {
@@ -20,7 +21,7 @@ export default function Library() {
             console.log(response);
             setBooks(response.data);
         }).catch(err => { setBooks(); });
-    }, [loginStatus.inLibrary])
+    }, [loginStatus.inLibrary,length])
 
     let libraryJSX = (
         <div className="empty-wishlist-body">
