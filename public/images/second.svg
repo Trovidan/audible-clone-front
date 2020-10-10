@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="020_AryaAnon_icon_1" transform="translate(-4.000000, -4.000000)">
+            <g id="Group-3" transform="translate(5.000000, 5.000000)">
+                <g id="Group-2" stroke="#F29A0C">
+                    <g id="Group">
+                        <circle id="Oval-2" cx="50" cy="50" r="50"></circle>
+                    </g>
+                </g>
+                <path d="M43,67.66 C43.96,62.44 47.8,59.14 52.06,55.72 C57.46,51.34 63.22,46.84 63.22,39.58 C63.22,32.74 58.18,28 50.44,28 C44.2,28 39.88,31.12 37.72,37 L42.58,39.52 C44.02,35.68 46.42,32.98 50.5,32.98 C54.76,32.98 57.58,35.5 57.58,39.64 C57.58,44.56 53.38,47.98 48.7,51.88 C43.06,56.56 37,61.6 37,70.72 L37,72.64 L63.64,72.64 L63.64,67.66 L43,67.66 Z" id="2-copy" fill="#727579"></path>
+            </g>
+        </g>
+    </g>
+</svg>

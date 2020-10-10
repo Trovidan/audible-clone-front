@@ -1,0 +1,473 @@
+
+button {
+    border: 0px solid #F5F7F7;
+    padding: 0;
+    background-color: inherit;
+    margin: 0;
+    text-decoration: none;
+    outline: none;
+}
+button:active,
+button:focus{
+  border: none;
+  outline:none;
+  outline: none;
+}
+/************************* Audible-Motto - Css - start***************************************/
+
+.audible-motto-container{
+  text-align: center;
+  color: white;
+  font-family:sans-serif;
+  background-image: url("./images/bookLibrary.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: 100% 200%;
+  background-color: black;
+  height: 58vh;
+}
+
+.audible-motto{
+  padding: 19vh;
+  line-height: 40px;
+}
+.audible-motto-title{
+  font-weight: 700;
+  font-size: 40px;
+}
+.audible-motto-promo{
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1vh;
+  color:rgba(255,255,255,.65);
+}
+
+/************************* Audible-Motto - Css - start***************************************/
+
+
+/************************* Navbar - Css - start***************************************/
+
+.navbar-container{
+    width: 66%;
+    margin: 0 auto 0 auto;
+}
+.custom-navbar{
+  font-size: 16px;
+  min-height: 120px;
+  min-width: 100%;
+}
+
+.logo{
+  display: flex;
+  margin: 23px 0 0 0;
+}
+
+.navbar-list{
+  align-content: center;
+  margin-top: 38px;
+  margin-left: auto;
+  display:inherit;
+}
+
+.toggle-nav-list{
+  align-content: center;
+}
+
+.nav-element{
+  max-width: 76px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dropdown-element{
+  max-width: 76px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+.pipe{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.nav-link{
+  padding:0;
+  position: relative;
+}
+
+.cart-quantity-indicator{
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: -0.4rem;
+    right: -0.4rem;
+
+    width: 1rem;
+    height: 1rem;
+    border-radius: 2rem;
+    background-color: coral;
+    
+    color: white;
+    font-size: 0.8rem;
+}
+/************************* Navbar - Css - ends***************************************/
+
+/************************* Footer - Css - starts***************************************/
+footer{
+  min-height: 35vh;
+  font-size: 14px;
+  color: #000;
+  justify-content: center;
+  background-color: #F5F7F7;
+}
+
+.row{
+  padding: 0.5vh;
+}
+
+.footer-content{
+  margin: 0 auto 0 auto;
+  padding-top: 1vh;
+  width: 66%;
+}
+
+.footer-content-term{
+  text-align: center;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 3vh;
+}
+.footer-content-term-element{
+  margin:0 2vh 0 2vh;
+}
+hr{
+  width:69%;
+  border-top: 1px solid black;
+}
+
+
+/************************* Footer - Css - ends ***************************************/
+
+
+/************************* Card - Css - starts ***************************************/
+
+
+.card-container{
+  box-shadow: 1px 1px 5px grey;
+  border-radius: 2px;
+  width: 8.5rem;
+  height: 8.5rem;
+  margin: 0 2vh 0 2vh;
+  margin: 0;
+}
+
+.card-image{
+  width:100%;
+  border-radius: 2px;
+  margin: 0;
+}
+
+
+/************************* Card - Css - ends ***************************************/
+
+
+/************************* Carousel - Css - starts ***************************************/
+
+.carousel{
+    width:66%;
+    margin: 4vh auto 4vh auto;
+    overflow: hidden;
+}
+
+.carousel-row-container{
+  width: 99%;
+  position: relative;
+  height: 0;
+  overflow: visible;
+  opacity: 1;
+  margin: 0;
+  padding-left: 1%;
+}
+
+.carousel-button-container{
+  display: flex;
+  width: 100%;
+  min-height: 23vh;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 1vh;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.carousel-button-container:hover,
+.carousel-button-container:active,
+.carousel-button-container:focus{
+  opacity: 1;
+}
+
+.carousel-button{
+  width: 4vh;
+  height: 8vh;
+  border: none;
+  bottom: 0.5vh;
+  margin-top:5vh;
+  z-index: 6;
+}
+
+.carousel-button-left{
+  float:left;
+  margin-right: auto;
+  margin-left: 0;
+  width: 6vh;
+  background-color: #F5F7F7;
+}
+
+.carousel-button-right{
+  float: right;
+  margin-left: auto;
+  margin-right: 0;
+  width: 6vh;
+  background-color: #F5F7F7;
+}
+
+.carousel-button-image{
+  width: 6vh;
+}
+
+/************************* Carousel - Css - ends ***************************************/
+
+/************************* ExplainStrip - Css - begins ***************************************/
+
+.explainStrip-container{
+  width:70%;
+  height: 30vh;
+  margin:3vh auto 7vh auto;
+  text-align: center;
+  font-size: 14px;
+  justify-content: center;
+}
+
+.explainStrip-title{
+  margin-bottom: 4vh;
+}
+.explainStrip-image{
+  width: 15vh;
+}
+
+.explainStrip-text{
+  margin: 2vh auto 2vh auto;
+}
+
+/************************* ExplainStrip - Css - ends ***************************************/
+
+
+/************************* Profile - Css - begins ***************************************/
+.profile-body{
+  width: 66%;
+  margin: 50px auto 50px auto;
+}
+
+.profile-title{
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+.profile-container{
+  display: flex;
+  width: 100%;
+  min-height: 200px;
+  margin-top: 20px;
+}
+
+.profile-section-menu{
+  display: flex;
+  flex-direction: column;
+  flex: 0.25;
+}
+
+.profile-section-option:hover{
+  font-weight: 600;
+}
+
+.profile-section-details{
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+}
+
+.profile-section-details-title{
+  display: block;
+  font-size: 22px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 700;
+}
+
+.update-account-details{
+  font-size: 15px;
+  color: gray;
+}
+
+.account-details-title{
+  display: block;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.account-details{
+  font-size: 16px;
+  color: gray;
+  display: block;
+}
+
+.user-profile-error{
+  display: block;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.user-profile-error > a{
+  text-decoration: none;
+  color:gray;
+}
+
+.user-profile-error > a:hover{
+  color:black;
+}
+
+.user-profile-error > .spinner-border{
+  width: 4rem;
+  height: 4rem;
+}
+
+/************************* Profile - Css - ends ***************************************/
+
+
+/************************* BookTile - Css - begins ***************************************/
+
+.bookTile{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: white;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
+}
+
+.bookTile-image{
+  display: flex;
+  flex:content;
+}
+.bookTile-image > img{
+  width: 12rem;
+  margin-bottom: 1rem;
+}
+.bookTile-details{
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+  flex: 0.8;
+}
+
+.bookTile-title{
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  color:  darkcyan;
+}
+.bookTile-title:hover,
+.bookTile-title:active{
+  text-decoration: none;
+}
+
+.bookTile-placeholder{
+  color: #484848;
+}
+
+.bookTile-description{
+  padding-left: 0.2rem;
+  color:  darkcyan;
+}
+
+.bookTile-price{
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.bookTile-price > .btn{
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 11rem;
+  background-color: #F69A39;
+}
+
+.bookTile-price > .btn:hover{
+  background-color: #F6B139  ;
+}
+
+.bookTile-price > .btn-inlist{
+  background-color: #ceece8;
+  border-color: #ceece8;
+}
+
+.bookTile-price > .btn-inlist:hover,
+.bookTile-price > .btn-inlist:active{
+  background-color: aqua;
+  border-color: aqua;
+}
+/************************* BookTile - Css - ends ***************************************/
+
+/************************* Filter - Css - begins ***************************************/
+
+.category-filter{
+  margin-bottom: 1rem;
+}
+.category-filter-title{
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 8rem;
+  margin-right: 1rem;
+  text-align: left;
+  color:#484848;
+}
+.category-filter-options{
+  margin-left: 1.5rem;
+  display: block;
+  height: 2rem;
+}
+.category-filter-options >.MuiTypography-body1{
+  font-size: 0.9rem;
+}
+
+span.MuiCheckbox-colorSecondary.Mui-checked  {
+  color: #E37D37  ;
+}
+/************************* Filter - Css - ends ***************************************/
+
+.verification-body{
+  display: grid;
+  place-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.verification-title{
+  font-size: 2rem;
+  font-weight: 500;
+  color: #484848;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+}
