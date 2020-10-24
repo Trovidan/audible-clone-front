@@ -35,7 +35,7 @@ export default function CreateUser() {
             email: email,
             password: password
         }
-        axios.post('/createAccount',details).then((response)=>{
+        axios.post('/signup/createAccount',details).then((response)=>{
             setError("");
             setVerification(response.data.sessionID);
             return;
@@ -62,7 +62,7 @@ export default function CreateUser() {
     }
     return (
         <div className="login-body">
-            <a href="http://localhost:3000"><img src={logo} className="login-logo" alt="audible_logo" /></a>
+            <a href="/"><img src={logo} className="login-logo" alt="audible_logo" /></a>
             <div className="createUser-container">
                 <span className="login-title">Create User</span>
                 <div className="login-input-container">

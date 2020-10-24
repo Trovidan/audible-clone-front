@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 import LoginStatus from './loginStatus';
+import {Link} from 'react-router-dom';
 
 
 export default function NavbarComponent (){
@@ -14,55 +15,55 @@ export default function NavbarComponent (){
   const loggedMenu= [
     {
       title: "Explore",
-      link: "http://localhost:3000/explore" 
+      link: "/explore" 
     },
     {
       title: "Library",
-      link: "http://localhost:3000/library"
+      link: "/library"
     },
     {
       title: "Wishlist",
-      link: "http://localhost:3000/wishlist"
+      link: "/wishlist"
     },
     {
       title: "Cart",
-      link: "http://localhost:3000/cart"
+      link: "/cart"
     }
   ];
-  const menu= [
+  const menu = [
     {
       title: "Explore",
-      link: "http://localhost:3000/explore"
+      link: "/explore"
     },
     {
       title: "Cart",
-      link: "http://localhost:3000/cart"
+      link: "/cart"
     },
     {
       title: "Sign in",
-      link: "http://localhost:3000/login"
+      link: "/login"
     }
   ];
   const profileOptions= [
     {
       title: "Account",
-      link: "http://localhost:3000/profile"
+      link: "/profile"
     },
     {
       title: "Orders",
-      link: "http://localhost:3000/"
+      link: "/"
     },
     {
       title: "Credits",
-      link: "http://localhost:3000/"
+      link: "/"
     },
     {
       title: "Return",
-      link: "http://localhost:3000/"
+      link: "/"
     },
     {
       title: "Ask Question?",
-      link: "http://localhost:3000/"
+      link: "/"
     }
   ];
     
@@ -70,16 +71,17 @@ export default function NavbarComponent (){
   let profile = logStatus?
             (
               <NavDropdown title="Profile" className = "nav-element" id="collasible-nav-dropdown">
-                {profileOptions.map(option => <NavDropdown.Item key={option.title} href={option.link}>{option.title}</NavDropdown.Item> )}
+        {profileOptions.map(option => <NavDropdown.Item key={option.title}><Link className="nav-element"to={option.link}>{option.title}</Link></NavDropdown.Item> )}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#"><button onClick={()=>{loginStatus.logOut(true)}}>Sign Out!</button></NavDropdown.Item>
               </NavDropdown>
+
             ) :
             "";
   return (
       <div className="navbar-container">
         <Navbar className= "custom-navbar" collapseOnSelect expand="lg" >
-          <Navbar.Brand href="http://localhost:3000/">
+          <Navbar.Brand href="/">
             <img src={logo} className = "logo" alt="Logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav " />
@@ -93,8 +95,10 @@ export default function NavbarComponent (){
                   )
                 }
                 return (
-                  <Nav.Link key={navItem.title} className="nav-element" href={navItem.link}>
+                  <Nav.Link key={navItem.title} className="nav-element" >
+                  <Link key={navItem.title} className="nav-element" to={navItem.link}>
                     {navItem.title}{cartJSX}
+                  </Link>
                   </Nav.Link>
                 );
               })}

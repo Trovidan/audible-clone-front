@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
 import ExplainStrip from '../components/explainStrip.js';
 import Carousel from '../components/carousel.js';
 import './styles.css';
@@ -26,7 +24,7 @@ export default function Home(){
     const [cardDetails, setCardDetails] = useState([]);
 
     useEffect(() => {
-        axios.post('/books').then(response => {
+        axios.post('/books',{projection:"_id imageUri",limit: 12, sortby:'rating'}).then(response => {
             setCardDetails(response.data);
         });
 
@@ -34,7 +32,6 @@ export default function Home(){
 
     return (
         <div className="App">
-            <Navbar />
             <div className="audible-motto-container">
                 <div className="audible-motto">
                     <span className="audible-motto-title">BOOKS. STORIES.</span><br />
@@ -45,7 +42,6 @@ export default function Home(){
             </div>
             <Carousel carouselID="0" cardDetails={cardDetails} />
             <ExplainStrip details={stripContent} title="How to Start?" />
-            <Footer />
         </div>
     );
 }

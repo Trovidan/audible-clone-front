@@ -10,9 +10,12 @@ import Explore from './routes/explore';
 import Wishlist from './routes/wishlist';
 import Library from './routes/library';
 import Cart from './routes/cart';
+import Navbar from './components/navbar.js';
+import Footer from './components/footer.js';
 import {LoginProvider} from './components/loginStatus';
 import BookPage from './routes/bookPage';
 import Verification from './routes/verification';
+
 
 export default function App(){
   const [auth,setAuth] = useState();
@@ -24,13 +27,15 @@ export default function App(){
   const cookies = new universalCookie();
   
   const fetchList = async () => {
-    await axios.get('/getList', { withCredentials: true }).then(response => {
+    await axios.post('/user/getList',{sessionID: cookies.get("sessionID")}).then(response => {
       //console.log(response.data);
       setList({
         inLibrary: response.data.library,
         inCart: response.data.cart,
         inWishlist: response.data.wishlist
       });
+    }).catch(err=>{
+      console.log(err);
     })
   }
   const login=(sessionID)=>{
@@ -55,7 +60,7 @@ export default function App(){
   };
   const addToCart=(id)=>{
     if(auth===true){
-      axios.post('/updateRecord',{fieldName: "cart", val: id, type: 1},{withCredentials:true}).then(response=>{
+      axios.post('/user/updateRecord',{fieldName: "cart", val: id, type: 1, sessionID: cookies.get("sessionID")}).then(response=>{
         setList({
           inLibrary: [...list.inLibrary],
           inCart: [...list.inCart,id],
@@ -82,7 +87,7 @@ export default function App(){
       return true;
     });
     if (auth === true) {
-      axios.post('/updateRecord', { fieldName: "cart", val: id, type: 2 }, { withCredentials: true }).then(response => {
+      axios.post('/user/updateRecord', { fieldName: "cart", val: id, type: 2, sessionID: cookies.get("sessionID") }).then(response => {
         setList({
           inLibrary: [...list.inLibrary],
           inCart: newCart,
@@ -102,7 +107,7 @@ export default function App(){
   };
   const addToWishlist = (id) => {
     if (auth === true) {
-      axios.post('/updateRecord', { fieldName: "wishlist", val: id, type: 1 }, { withCredentials: true }).then(response => {
+      axios.post('/user/updateRecord', { fieldName: "wishlist", val: id, type: 1, sessionID: cookies.get("sessionID") }).then(response => {
         setList({
           inLibrary: [...list.inLibrary],
           inCart: [...list.inCart],
@@ -115,7 +120,7 @@ export default function App(){
     else {
       setList({
         inLibrary: [...list.inLibrary],
-        inCart: [...list.inCart, id],
+        inCart: [...list.inCart],
         inWishlist: [...list.inWishlist,id]
       });
     }
@@ -129,7 +134,7 @@ export default function App(){
       return true;
     });
     if (auth === true) {
-      axios.post('/updateRecord', { fieldName: "wishlist", val: id, type: 2 }, { withCredentials: true }).then(response => {
+      axios.post('/user/updateRecord', { fieldName: "wishlist", val: id, type: 2, sessionID: cookies.get("sessionID") }).then(response => {
         setList({
           inLibrary: [...list.inLibrary],
           inCart: [...list.inCart],
@@ -147,7 +152,6 @@ export default function App(){
       });
     }
   };
-
   const moveToWishlist = (id) => {
     let newCart = [];
     list.inCart.map(cart => {
@@ -157,7 +161,7 @@ export default function App(){
       return true;
     });
     if (auth === true) {
-      axios.post('/updateRecord', { fieldName: "wishlist", val: id, fromFieldName : "cart" }, { withCredentials: true }).then(response => {
+      axios.post('/user/updateRecord', { fieldName: "wishlist", val: id, fromFieldName: "cart", sessionID: cookies.get("sessionID") }).then(response => {
         setList({
           inLibrary: [...list.inLibrary],
           inCart: newCart,
@@ -184,7 +188,7 @@ export default function App(){
       return true;
     });
     if (auth === true) {
-      axios.post('/updateRecord', { fieldName: "cart", val: id, fromFieldName: "wishlist" }, { withCredentials: true }).then(response => {
+      axios.post('/user/updateRecord', { fieldName: "cart", val: id, fromFieldName: "wishlist", sessionID: cookies.get("sessionID") }).then(response => {
         setList({
           inLibrary: [...list.inLibrary],
           inCart: [...list.inCart, id],
@@ -203,9 +207,7 @@ export default function App(){
     }
   };
   const checkSession= async ()=>{
-    await axios.get('/checkSession', {
-      withCredentials: true
-    }).then(response => {
+    await axios.post('/signup/checkSession', {sessionID: cookies.get("sessionID")}).then(response => {
       if (response.data.status) {
         login(cookies.get("sessionID"));
       }
@@ -246,16 +248,21 @@ export default function App(){
     <LoginProvider value={providerValues}>
       <BrowserRouter >
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/explore" component={Explore} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/book/:bookID" component={BookPage} />
-          <ProtectedLogin exact path="/login" auth={auth} component={Login}/>
+          <ProtectedLogin exact path="/login" auth={auth} component={Login} />
           <Route exact path="/verification/:token" auth={auth} component={Verification} />
           <ProtectedLogin exact path="/createUser" auth={auth} component={CreateUser} />
-          <ProtectedRoute exact path="/profile" auth={auth} component={ProfilePage}/>
-          <ProtectedRoute exact path="/wishlist" auth={auth} component={Wishlist}/>
-          <ProtectedRoute exact path="/library" auth={auth} component={Library} />
+          <Route path="/">
+            <Navbar/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/explore" component={Explore} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/book/:bookID" component={BookPage} />
+            <ProtectedRoute exact path="/profile" auth={auth} component={ProfilePage} />
+            <ProtectedRoute exact path="/wishlist" auth={auth} component={Wishlist} />
+            <ProtectedRoute exact path="/library" auth={auth} component={Library} />
+            <Footer/>
+          </Route>
         </Switch>
       </BrowserRouter>
     </LoginProvider>

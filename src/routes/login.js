@@ -19,7 +19,7 @@ export default function Login(){
 
         e.preventDefault(); 
        
-        await axios.post('/login',{
+        await axios.post('/signup/login',{
             email: email,
             password: password
         }).then( (response) => {
@@ -81,7 +81,7 @@ export default function Login(){
                     <Col><hr/></Col>
                     <Col md="auto">New to Audible?</Col>
                     <Col><hr /></Col>
-                    <a href="http://localhost:3000/createUser"><Button variant="light" >Create New Account</Button></a>
+                    <a href="/createUser"><Button variant="light" >Create New Account</Button></a>
                 </Row>
                 
             </div>

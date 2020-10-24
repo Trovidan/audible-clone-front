@@ -33,7 +33,7 @@ export default function Verification(props){
             setReturnJSX(<Redirect to="/" />);
             return;
         }
-        axios.post("/verifyAccount",{token: props.match.params.token}).then(response=>{
+        axios.post("/verify/account",{token: props.match.params.token}).then(response=>{
             cookies.set("sessionID", response.data, { path: "/", maxAge: 60 * 60 * 1000 });
             setReturnJSX(<Redirect to="/"/>);
             return;

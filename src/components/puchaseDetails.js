@@ -4,7 +4,7 @@ import './styles.css';
 export default function PurchaseDetails() {
     return (
         <div className="user-profile-error">
-            <a href="http://localhost:3000">
+            <a href="/explore">
                 Let's buy a book to listen
                 </a>
         </div>

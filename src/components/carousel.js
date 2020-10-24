@@ -122,13 +122,14 @@ export default class Carousel extends React.Component{
     for(let i = 0; i<displaySize;i++){
       displayCards.push(this.props.cardDetails[i + this.state.start]);
     }
-
+    console.log("carousel");
+    console.log(displayCards);
     return (
       <div className="carousel">
         <div className="carousel-row-container">
           <Row className="carousel-row">
             {displayCards.map(card =>
-              <Col key={card._id}> <Cards uri={card.imageUri} /></Col>)
+              <Col key={card._id}> <Cards uri={card.imageUri} link={`/book/${card._id}`}/></Col>)
             }
           </Row>
         </div>

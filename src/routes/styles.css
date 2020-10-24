@@ -280,11 +280,11 @@ button:focus{
 .explore-error{
   text-align: center;
   margin: 10rem auto;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
   word-spacing: 0.7rem;
-  color: #484848;
+  color: #4b4b4b;
 }
 
 /************************* explore - Css - ends ***************************************/
@@ -335,6 +335,8 @@ button:focus{
 }
 /************************* wishList - Css - ends ***************************************/
 
+
+/************************* bookPage - Css - begins ***************************************/
 
 .bookPage-notFound{
   height: 23rem;
@@ -428,3 +430,24 @@ button:focus{
   background-color: aqua;
   border-color: aqua;
 }
+
+.book-summary{
+  width: 66%;
+  margin: 3rem auto;
+}
+
+.book-summary-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  word-spacing: 3px;
+  letter-spacing: 1px;
+  margin: 2rem 0;
+}
+
+.book-summary-body{
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  line-height: 2rem;
+}
+/************************* bookPage - Css - ends ***************************************/

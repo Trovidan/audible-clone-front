@@ -1,12 +1,11 @@
-import React, { useState, useEffect} from 'react'
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import React, { useState} from 'react'
 import BookTile from '../components/bookTile';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from '../components/axios';
 import Filter from '../components/filter';
+
+
 export default function Explore(){
-    
     const [books,setBooks] = useState();
     const [error,setError] = useState("");
     let initialSelection = {
@@ -192,45 +191,52 @@ export default function Explore(){
     const [programTypes,setProgramTypes] = useState(initialSelection.programTypes);
     const [languages,setLanguages] = useState(initialSelection.languages);
 
+    function fetchBooks() {
+        console.log("fetch called");
+        axios.post("/books",
+            {
+                languages: languages,
+                categories: categories,
+                genres: genres,
+                programTypes: programTypes
+            }).then(response => {
+                setError("");
+                setBooks(response.data);
+            }).catch(error => {
+                setError("Something Went Wrong!!!");
+            });
+    }
+    React.useEffect(()=>{
+        if(books===undefined){
+            fetchBooks();
+        }
+    });
     function handleCategoryChange(state) {
         let newState = Object.assign([], state);
         setCategories(newState);
+        fetchBooks();
         return true;
     }
     const handleLanguageChange = (state) => {
         let newState = Object.assign([], state);
         setLanguages(newState);
+        fetchBooks();
         return;
     }
     const handleGenreChange = (state) => {
         let newState = Object.assign([], state);
         setGenres(newState);
+        fetchBooks();
         return;
     }
     const handleProgramTypeChange = (state) => {
         let newState = Object.assign([], state);
         setProgramTypes(newState);
+        fetchBooks();
         return;
     }
     let bookJSX;
-    useEffect(() => {
-        async function fetchBooks() {
-            console.log("fetch called");
-            await axios.post("/books",
-                {
-                    languages: languages,
-                    categories: categories,
-                    genres: genres,
-                    programTypes: programTypes
-                }).then(response => {
-                    setError("");
-                    setBooks(response.data);
-                }).catch(error => {
-                    setError("Something Went Wrong!!!");
-                });
-        }
-        fetchBooks();
-    }, [categories,genres,programTypes,languages])
+    
     
     if(error !== ""){
         bookJSX  = (  
@@ -244,16 +250,23 @@ export default function Explore(){
             <Spinner animation="border" variant="warning" />
         );
     }
+    else if(books.length===0){
+        bookJSX =(
+            <div className="explore-error">
+                Hang tight, we will have it soon!
+            </div>
+        );
+    }
     else{
         bookJSX = (
             <div>
                 {books.map(book => <BookTile key={book._id} book={book} />)}
-            </div>  
+            </div> 
+
         );
     }
     return(
         <div>
-            <Navbar />
             <div className="explore-body">
                 <div className="explore-body-filter">
                     <Filter title="Category" categories={categories} changeState={(newState) => handleCategoryChange(newState)} reset={() => handleCategoryChange(initialSelection.categories)}/>
@@ -265,7 +278,6 @@ export default function Explore(){
                     {bookJSX}
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

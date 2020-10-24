@@ -52,6 +52,7 @@ button:focus{
     width: 66%;
     margin: 0 auto 0 auto;
 }
+
 .custom-navbar{
   font-size: 16px;
   min-height: 120px;
@@ -76,10 +77,14 @@ button:focus{
 
 .nav-element{
   max-width: 76px;
+  text-decoration: none;
+  color: inherit;
   margin-left: auto;
   margin-right: auto;
 }
-
+.nav-element:hover{
+  text-decoration: none;
+}
 .dropdown-element{
   max-width: 76px;
   margin-left: auto;
@@ -457,6 +462,8 @@ span.MuiCheckbox-colorSecondary.Mui-checked  {
 }
 /************************* Filter - Css - ends ***************************************/
 
+/************************* Verification - Css - Begins ***************************************/
+
 .verification-body{
   display: grid;
   place-content: center;
@@ -471,3 +478,78 @@ span.MuiCheckbox-colorSecondary.Mui-checked  {
   letter-spacing: 2px;
   margin-bottom: 3rem;
 }
+
+/************************* Verification - Css - ends ***************************************/
+
+
+/************************* review - Css - ends ***************************************/
+.review-body{
+  width: 66%;
+  min-width: 47rem;
+  margin: 2rem auto;
+}
+
+.review-overview{
+  min-width: 47rem;
+  width: 100%;
+  text-align: center;
+  margin: 1rem auto;
+  padding-bottom: 2rem;
+  position: relative;
+  font-size: 1.5rem;
+  color: #484848;
+  border-bottom: 2px solid #636363;
+  font-weight: 500;
+}
+
+.review-overview > .star-ratings{
+  margin-left: 3.5rem;
+  margin-top: 1rem;
+}
+
+.review-overview-title{
+  position: relative;
+}
+.review-overview-sub{
+  bottom: -1.5rem;
+  left: 20%;
+  position: absolute;
+  font-size: 0.8rem;
+  color: #a8a8a8;
+  font-weight: 500;
+  margin-left: 0;
+}
+
+.user-review{
+  display: flex;
+  margin: auto;
+  padding: 1.5rem;
+  width: 47rem;
+}
+.user-review-overview{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex:0.3;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.user-review-details{
+  display: flex;
+  flex-direction: column;
+  flex:0.7;
+}
+
+.user-review-title{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 3rem;
+}
+
+.user-review-body{
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #484848;
+  margin-left: 3rem;
+}
+/************************* review - Css - ends ***************************************/

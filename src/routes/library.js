@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css'
 import LoginStatus from '../components/loginStatus';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
 import axios from '../components/axios';
 import BookTile from '../components/bookTile';
 import { Button } from 'react-bootstrap';
@@ -29,7 +27,7 @@ export default function Library() {
                 No items found in your Library.
             </span>
             Start building your Library with audiobooks that inspire and entertain.
-            <Button variant="warning" className="empty-wishlist-btn" href="http://localhost:3000/explore">Explore Audio-Books</Button>
+            <Button variant="warning" className="empty-wishlist-btn" href="/explore">Explore Audio-Books</Button>
         </div>
     );
 
@@ -43,7 +41,6 @@ export default function Library() {
     }
     return (
         <>
-            <Navbar />
             <div className="wishlist-container">
                 <div className="wishlist-title-container">
                     <span className="wishlist-title">Library</span>
@@ -53,7 +50,6 @@ export default function Library() {
                     {libraryJSX}
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

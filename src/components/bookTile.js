@@ -1,18 +1,18 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import "./styles.css";
+import {Link} from 'react-router-dom';
 import LoginStatus from './loginStatus';
 
 export default function BookTile(props){
     const book = props.book;
     const loginStatus = React.useContext(LoginStatus);
     let buttonJSX = props.buttonJSX;
-    console.log(props.buttonJSX);
     if(buttonJSX===undefined){
         if (loginStatus.inCart.includes(book._id)){
             buttonJSX = (
                 <>
-                    <Button variant="light" className="btn-inlist" href="http://localhost:3000/cart">In Cart</Button>
+                    <Link className="btn btn-inlist" to="/cart">In Cart</Link>
                 </>
             );
         }
@@ -20,14 +20,14 @@ export default function BookTile(props){
             buttonJSX = (
                 <>
                     <Button variant="warning" onClick={() => { loginStatus.moveToCart(book._id) }}>Move To Cart</Button>
-                    <Button variant="light" className="btn-inlist" href="http://localhost:3000/wishlist">In Wish List</Button>
+                    <Link className="btn btn-inlist" to="/wishlist">In Wish List</Link>
                 </>
             );
         }
         else if(loginStatus.inLibrary.includes(book._id)){
             buttonJSX = (
                 <>
-                    <Button variant="light" className="btn-inlist" href="http://localhost:3000/library">In Your Library</Button>
+                    <Link className="btn btn-inlist" to="/library">In Your Library</Link>
                 </>
             );
         }
@@ -42,11 +42,11 @@ export default function BookTile(props){
     }
     return (
         <div className="bookTile">
-            <a className="bookTile-image" href= {`http://localhost:3000/book/${book._id}`} >
+            <a className="bookTile-image" href= {`/book/${book._id}`} >
                 <img src={book.imageUri} alt={book.title} />
             </a>
             <div className= "bookTile-details">
-                <a className="bookTile-title" href={`http://localhost:3000/book/${book._id}`}>
+                <a className="bookTile-title" href={`/book/${book._id}`}>
                     {book.title}
                 </a>
                 <div>

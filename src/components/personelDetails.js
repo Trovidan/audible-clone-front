@@ -3,28 +3,26 @@ import axios from './axios';
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import cookie from 'universal-cookie';
 import './styles.css';
 
 export default function PersonelDetails(){
     const [error,setError] = React.useState(false);
-    const [personelDetails,setPersonelDetails] = React.useState({
-        name:"",
-        _id: "",
-        password: ""
-    });  
-    
-    React.useEffect(()=>{
+    const [personelDetails,setPersonelDetails] = React.useState();  
+    const cookies = new cookie();
+    const fetchdetails= async ()=>{
         let details = {
-            projection: "name _id password"
+            projection: "name _id password",
+            sessionID: cookies.get("sessionID")
         };
-        axios.post("/personelDetails",details,{ withCredentials: true }).then(response => {
+        await axios.post("/user/details",details).then(response => {
             console.log(response.data);
             setPersonelDetails(response.data);           
             setError(false);
         }).catch(err => {
             setError(true);
         });
-    },[]);
+    }
     
     if(error){
         return (
@@ -33,7 +31,8 @@ export default function PersonelDetails(){
             </div>
         );
     }
-    else if(personelDetails.name === ""){
+    else if(personelDetails === undefined){
+        fetchdetails();
         return (
             < div className = "user-profile-error" >
                 <Spinner animation="border" variant="warning" />

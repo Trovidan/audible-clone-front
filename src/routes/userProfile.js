@@ -1,6 +1,4 @@
 import React,{useState} from 'react';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
 import './styles.css';
 import PersonelDetails from '../components/personelDetails';
 import UserReviews from '../components/userReviews';
@@ -28,7 +26,6 @@ export default function UserProfile(){
 
     return (
         <div>
-            <Navbar/>
             <div className="profile-body">
                 <div className="profile-title">User's Profile</div>
                 <div className="profile-container">
@@ -50,7 +47,6 @@ export default function UserProfile(){
                     </div>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }
