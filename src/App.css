@@ -1,0 +1,12 @@
+.app-lazy-loading{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-content: center;
+}
+
+
+.app-lazy-loading-image{
+    width: 15rem;
+    padding: 1rem;
+}
