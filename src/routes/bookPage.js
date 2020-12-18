@@ -92,7 +92,7 @@ export default function BookPage(props){
             </>
         );
     }
-    //console.log(book);
+    document.title = `${book.title} | Audible`;
     return(
         <>
             <div style = {styles}  >

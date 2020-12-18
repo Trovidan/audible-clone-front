@@ -6,7 +6,7 @@ import PurchaseDetails from '../components/puchaseDetails';
 
 
 export default function UserProfile(){
-
+    document.title = "Profile | Audible";
     const [displaySection, setDisplaySection] = useState({component: PersonelDetails});
     var $displaySection = displaySection;
     const sections = [

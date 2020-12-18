@@ -6,6 +6,7 @@ import BookTile from '../components/bookTile';
 import { Button } from 'react-bootstrap';
 
 export default function Cart() {
+    document.title = "Cart | Audible"
     const loginStatus = React.useContext(LoginStatus);
     const [books, setBooks] = useState();
     let length = loginStatus.inCart === undefined ? 0 : loginStatus.inCart.length;

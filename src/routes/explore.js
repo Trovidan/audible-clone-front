@@ -6,6 +6,7 @@ import Filter from '../components/filter';
 
 
 export default function Explore(){
+    document.title = "Explore | Audible";
     const [books,setBooks] = useState();
     const [error,setError] = useState("");
     let initialSelection = {

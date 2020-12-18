@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Verify from '../components/verify';
 
 export default function CreateUser() {
+    document.title = "Register | Audible";
     const [name,setName] = useState("");
     const [password,setPassword] = useState("");
     const [email,setEmail] = useState("");

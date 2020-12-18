@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Verify from '../components/verify';
 export default function Login(){
-
+    document.title = "Login | Audible";
     const loginStatus = React.useContext(LoginStatus);
 
     const [password,setPassword] = useState("");

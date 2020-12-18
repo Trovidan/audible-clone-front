@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch,Redirect} from 'react-router-dom';
 import universalCookie from 'universal-cookie';
 import { LoginProvider } from "./components/loginStatus.js"
 import logo from './components/images/svgIcons/audible_logo.svg';
+import axios from './components/axios.js';
 import './App.css'
 
 const Home = lazy(() => import("./routes/home.js") );
 const Login = lazy(() => import("./routes/login.js") );
 const ProfilePage = lazy(() => import("./routes/userProfile.js") );
-const axios = lazy(() => import("./components/axios.js") );
 const CreateUser = lazy(() => import("./routes/createUser.js") );
 const Explore = lazy(() => import("./routes/explore.js") );
 const Wishlist = lazy(() => import("./routes/wishlist.js") );

@@ -6,6 +6,7 @@ import BookTile from '../components/bookTile';
 import { Button } from 'react-bootstrap';
 
 export default function Wishlist(){
+    document.title = "Wishlist | Audible";
     const loginStatus = React.useContext(LoginStatus);
     const [books,setBooks] = useState();
     let length = loginStatus.inWishlist===undefined?0:loginStatus.inWishlist.length;

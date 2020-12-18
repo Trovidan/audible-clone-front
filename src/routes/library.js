@@ -6,6 +6,7 @@ import BookTile from '../components/bookTile';
 import { Button } from 'react-bootstrap';
 
 export default function Library() {
+    document.title = "Library | Audible";
     const loginStatus = React.useContext(LoginStatus);
     const [books, setBooks] = useState();
 
